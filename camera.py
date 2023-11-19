@@ -1,6 +1,12 @@
 import picamera
 import time
 
+
+class Camera:
+    def __init__(self, log):
+        self.log = log
+
+
 # Create a camera object
 camera = picamera.PiCamera()
 
