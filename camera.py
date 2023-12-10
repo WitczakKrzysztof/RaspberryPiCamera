@@ -1,26 +1,19 @@
 import picamera
-import time
 
 
 class Camera:
-    def __init__(self, log):
-        self.log = log
+    def __init__(self):
+        self.camera = picamera.PiCamera()
 
+    def capture_image(self, file_path):
+        self.camera.capture(file_path)
 
-# Create a camera object
-camera = picamera.PiCamera()
+    def preview(self):
+        self.camera.start_preview()
 
-# Set camera resolution (optional)
-camera.resolution = (640, 480)
+    def stop_preview(self):
+        self.camera.stop_preview()
 
-# Start the preview
-camera.start_preview()
+    def close(self):
+        self.camera.close()
 
-# Give the camera some warm-up time
-time.sleep(2)
-
-# Capture the camera view
-camera.capture('camera_view.jpg')
-
-# Stop the preview
-camera.stop_preview()
