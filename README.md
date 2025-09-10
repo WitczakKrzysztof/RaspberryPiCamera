@@ -1,7 +1,44 @@
-# RaspberryPiCamera
+# Raspberry Pi Camera UART Transmission
 
-This project utilizes a Raspberry Pi, a camera module, and establishes a connection to a PC using UART protocol. The aim of this project is to enable the Raspberry Pi to capture images or videos using the camera module and transmit them to a PC via UART communication.
+## 📌 Project Overview
+This project demonstrates how to use a **Raspberry Pi** with a **camera module** to capture images or videos and transmit them to a **PC** via **UART communication**.  
+It provides a lightweight and efficient way to transfer media between a Raspberry Pi and a host computer without requiring high-level network protocols.
 
-The Raspberry Pi, a versatile single-board computer, serves as the core of the project. It provides the necessary processing power and GPIO (General Purpose Input Output) pins to interface with the camera module. The camera module, compatible with the Raspberry Pi, allows for high-quality image and video capture.
+---
 
-To establish the connection between the Raspberry Pi and the PC, UART (Universal Asynchronous Receiver/Transmitter) protocol is utilized. UART is a simple, asynchronous serial communication protocol commonly used for inter-device communication. By employing UART, the Raspberry Pi can transmit data in a serial format to the PC, facilitating seamless data transfer.
+## 🛠️ Hardware Requirements
+- Raspberry Pi (any model with UART support)
+- Raspberry Pi Camera Module (CSI or USB-based)
+- PC with a UART interface (or USB-to-UART adapter)
+- Jumper wires (TX, RX, GND connections)
+
+---
+
+## ⚙️ Software Requirements
+- Raspberry Pi OS (Lite or Desktop)
+- Python 3
+- `picamera2` or `libcamera` (for camera control, depending on OS version)
+- `pyserial` (for UART communication)
+- Serial terminal software on PC (e.g., `minicom`, `PuTTY`, or a Python script with `pyserial`)
+
+---
+
+## 🔌 Wiring Setup
+1. Connect **Raspberry Pi TX → PC RX**  
+2. Connect **Raspberry Pi RX → PC TX**  
+3. Connect **GND → GND**  
+
+⚠️ **Important**: Ensure voltage levels are compatible (Raspberry Pi UART uses **3.3V** logic). Use a level shifter if required.
+
+---
+
+## 🚀 How It Works
+1. The Raspberry Pi initializes the camera module.  
+2. The user captures an image or video.  
+3. The captured media is serialized (converted into bytes).  
+4. Data is transmitted via UART to the PC.  
+5. The PC receives and reconstructs the file.  
+
+---
+
+## 📂 Project Structure
